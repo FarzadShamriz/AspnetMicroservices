@@ -17,13 +17,13 @@ namespace Catalog.API.Repositories
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEnumerable<Product>> GetProducts(string id)
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             return await _context
-                .Products
-                .Find(prop => true).ToListAsync();
+                            .Products
+                            .Find(p => true)
+                            .ToListAsync();
         }
-
         public async Task<Product> GetProduct(string id)
         {
             return await _context
